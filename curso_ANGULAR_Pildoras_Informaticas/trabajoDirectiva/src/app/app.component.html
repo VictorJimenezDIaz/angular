@@ -1,0 +1,42 @@
+<h1 style="text-align: center;">{{title}} </h1>
+
+<form>
+  <input type="text" name ="nombre" [(ngModel)]="nombre">
+  <br>
+  <input type="text" name ="apellido" [(ngModel)]="apellido">
+  <br>
+  <input type="text" name ="cargo" [(ngModel)]="cargo">
+  <br>
+  <input type="submit" value ="Registrar" (click)="registrarUsuario()">
+</form>
+<br>
+
+<!-- DIRECTIVA IF EN ANGULAR
+COMO UTILIZAR: 
+      *ngIf="condicion; else plantillaAlternativa" 
+  donde plantillaAlternativa es una referencia a una plantilla ng-template definida en otro lugar del HTML -->
+  <p *ngIf="registrado; else sinRegistrar">{{mensaje}} con el nombre de {{nombre}} {{apellido}}
+
+   <!-- APLICAR ESTILOS EN ANGULAR:
+      [ngStyle]="{propiedadCSS:'valor', propiedadCSS:'valor'}"  
+     y tiene el cargo de 
+                          <span [ngStyle]="{color:cargo=='director' ? 'red' : 'black'}">{{cargo}}</span></p> -->
+
+    <!-- APLICAR CLASES EN ANGULAR:
+      [ngClass]="{'claseCSS': condicionTrue, 'otraClaseCSS': condicionTrue }"-->
+     y tiene el cargo de <span [ngClass]="{'paraDirectores': cargo=='director'}">{{cargo}}</span></p>
+
+<!-- DIRECTIVA ELSE EN ANGULAR
+ COMO UTILIZAR: 
+      *ngIf="condicion; else plantillaAlternativa" 
+  donde plantillaAlternativa es una referencia a una plantilla ng-template definida en otro lugar del HTML-->
+  <ng-template #sinRegistrar>
+    <p>Usuario no registrado</p>
+  </ng-template>
+<br>
+<br>
+
+<!-- DIRECTIVA FOR EN ANGULAR-->
+  <ul>
+    <li *ngFor="let entrada of entradas"><span style="font-size: larger;">{{entrada.titulo}}</span></li>
+  </ul>

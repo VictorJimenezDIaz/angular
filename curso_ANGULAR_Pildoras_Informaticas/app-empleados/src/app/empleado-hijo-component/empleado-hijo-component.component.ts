@@ -1,0 +1,14 @@
+import { Component, Input } from '@angular/core';
+import { Empleado } from '../empleado.model';
+
+@Component({
+  selector: 'app-empleado-hijo-component',
+  imports: [],
+  templateUrl: './empleado-hijo-component.component.html',
+  styleUrl: './empleado-hijo-component.component.css'
+})
+export class EmpleadoHijoComponentComponent {
+  @Input() empleadoDeLista:Empleado;
+  @Input() indice:number;
+
+}
